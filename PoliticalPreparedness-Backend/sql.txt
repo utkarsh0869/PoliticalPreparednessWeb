@@ -4,11 +4,11 @@ CREATE TABLE users (
 	last_name VARCHAR(50)
 );
 
-create table address (
-	user_id INT,
-	street varchar(100),
-	city varchar(50),
-	state varchar(50),
-	postal_code varchar(20),
-	foreign key (user_id) references users(user_id) on delete cascade
+CREATE TABLE address (
+    user_id INT PRIMARY KEY,
+    street VARCHAR(100) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(50) NOT NULL,
+    postal_code VARCHAR(20) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
