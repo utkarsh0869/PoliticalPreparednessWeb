@@ -21,6 +21,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Address address;
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnoreProperties("user") // Avoids infinite recursion
+//    private Address address;
 }

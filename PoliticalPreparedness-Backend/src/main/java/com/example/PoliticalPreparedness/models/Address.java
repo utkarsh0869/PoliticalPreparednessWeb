@@ -1,6 +1,9 @@
 package com.example.PoliticalPreparedness.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,10 +17,11 @@ public class Address {
     @Column(name = "user_id")
     private Integer userId;
 
-    @MapsId
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @MapsId
+//    @OneToOne
+//    @JoinColumn(name = "user_id")
+//    @JsonIgnoreProperties("address") // Avoids infinite recursion
+//    private User user;
 
     @Column(name = "street", length = 100, nullable = false)
     private String street;
