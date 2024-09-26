@@ -60,6 +60,8 @@ public class CivicsInfoService {
             // Find the user by username
             User user = userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("User not found."));
 
+            officialRepository.deleteOfficialByUserId(user.getUserId());
+
             // Map DTO to Entity
             List<Official> officials = officialDtos.stream()
                     .map(dto -> new Official(dto.getName(), dto.getParty(), dto.getPhones().get(0), dto.getUrls().get(0), user))
