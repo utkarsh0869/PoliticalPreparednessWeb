@@ -1,8 +1,11 @@
 package com.example.PoliticalPreparedness.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users", schema = "pp_web")
@@ -26,4 +29,8 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @JsonManagedReference // This will be serialized and included
+    private List<Official> officials;
 }

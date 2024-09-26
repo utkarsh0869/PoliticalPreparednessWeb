@@ -1,10 +1,13 @@
 package com.example.PoliticalPreparedness.controllers;
 
+import com.example.PoliticalPreparedness.models.Official;
 import com.example.PoliticalPreparedness.services.CivicsInfoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 @RestController
 public class CivicInfoController {
@@ -16,8 +19,8 @@ public class CivicInfoController {
     }
 
     @GetMapping("/api/representatives")
-    public Mono<String> getRepresentativesInfo(@RequestParam String address) {
-        return civicsInfoService.getRepresentatives(address);
+    public Mono<List<Official>> getRepresentativesInfo(@RequestParam String address, @RequestParam String email) {
+        return civicsInfoService.getRepresentatives(address, email);
     }
 
 }
