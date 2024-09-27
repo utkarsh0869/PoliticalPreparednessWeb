@@ -14,14 +14,21 @@ export default function LoginSignUp() {
         <div className="underline"></div>
       </div>
       <div className="inputs">
-        <div className="input">
-          <img src={user_icon} alt="user icon" />
-          <input type="text" placeholder="First name" />
-        </div>
-        <div className="input">
-          <img src={user_icon} alt="user icon" />
-          <input type="text" placeholder="Last name" />
-        </div>
+        {action === "Login" ? (
+          <div></div>
+        ) : (
+          <>
+            <div className="input">
+              <img src={user_icon} alt="user icon" />
+              <input type="text" placeholder="First name" />
+            </div>
+            <div className="input">
+              <img src={user_icon} alt="user icon" />
+              <input type="text" placeholder="Last name" />
+            </div>
+          </>
+        )}
+
         <div className="input">
           <img src={email_icon} alt="email icon" />
           <input type="email" placeholder="Email" />
@@ -31,9 +38,13 @@ export default function LoginSignUp() {
           <input type="password" placeholder="Password" />
         </div>
       </div>
-      <div className="forgot-password">
-        Forgot Password? <span>Click Here!</span>
-      </div>
+      {action === "Sign Up" ? (
+        <div></div>
+      ) : (
+        <div className="forgot-password">
+          Forgot Password? <span>Click Here!</span>
+        </div>
+      )}
       <div className="submit-container">
         <div
           className={action === "Login" ? "submit grey" : "submit"}
