@@ -151,7 +151,6 @@ export default function LoginSignUp() {
         )}
 
         <div className="submit-container">
-          {/* Replace div with button for submission */}
           <button type="submit" className="submit">
             {action === "Login" ? "Login" : "Sign Up"}
           </button>
